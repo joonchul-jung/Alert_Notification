@@ -4,11 +4,11 @@ var conn = hana.createConnection();
 var request = require('request');
 
 var conn_params = {
-    serverNode  : "a1ec9ca0-3dc6-4693-86fb-62d39fc31c9e.hana.trial-eu10.hanacloud.ondemand.com:443", // Change here.
+    serverNode  : "a1ec9ca0-3dc6-4693-86fb-62d39fc31c9e.hana.trial-eu10.hanacloud.ondemand.com:443", // put the endpoint of HANA Cloud
     encrypt     : true,
     schema      : "_SYS_STATISTICS",
     uid         : "DBADMIN",
-    pwd     : "Jjc!76007785" // Change here.
+    pwd     : "Password" // change the password
   };
 
 var job = schedule.scheduleJob({
@@ -39,7 +39,7 @@ var job = schedule.scheduleJob({
       else{
         // send mail
 		var options = {
-		  url: 'https://clm-sl-ans-live-ans-service-api.cfapps.eu10.hana.ondemand.com/cf/producer/v1/resource-events', // Endpoint URL + "/cf/producer/v1/resource-events"
+		  url: 'https://clm-sl-ans-live-ans-service-api.cfapps.eu10.hana.ondemand.com/cf/producer/v1/resource-events', // URL for Notication Service + "/cf/producer/v1/resource-events"
 		  method: 'POST',
 		  auth: {
 		    user: "43a3fa89-7a52-48b3-a3a7-73596de15796", // Change here.
